@@ -212,6 +212,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\NetworkUtilities.cs" />
+    <Compile Include="Utilities\ServiceUtilities.cs" />
     <EmbeddedResource Include="Forms\FrmAddHost.resx">
       <DependentUpon>FrmAddHost.cs</DependentUpon>
     </EmbeddedResource>
