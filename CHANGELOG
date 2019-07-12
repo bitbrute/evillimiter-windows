@@ -1,0 +1,5 @@
+[ CHANGELOG ]
+
+[ v1.0.1 ]
+- Ship required WinDivert64.sys file
+- Increased debuggability
