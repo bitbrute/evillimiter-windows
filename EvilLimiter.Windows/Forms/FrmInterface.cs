@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinDivertSharp;
@@ -174,7 +175,7 @@ namespace EvilLimiter.Windows.Forms
             winDivertHandle = WinDivert.WinDivertOpen("true", WinDivertLayer.Forward, 0, WinDivertOpenFlags.None);
             if (winDivertHandle == new IntPtr(-1))
             {
-                errorMessage("WinDivert Error", "WinDivert handle could not be opened.");
+                errorMessage("WinDivert Error", string.Format("WinDivert handle could not be opened.\nError Code: {0}", Marshal.GetLastWin32Error()));
                 return null;
             }
 
