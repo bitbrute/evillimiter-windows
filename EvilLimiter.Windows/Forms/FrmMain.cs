@@ -1,6 +1,7 @@
 ﻿using EvilLimiter.Windows.Common;
 using EvilLimiter.Windows.Data;
 using EvilLimiter.Windows.Networking;
+using EvilLimiter.Windows.Utilities;
 using MetroFramework;
 using System;
 using System.Collections.Generic;
@@ -280,6 +281,8 @@ The application will be terminated to avoid unwanted behaviour.",
                 Task.Run(() =>
                 {
                     Invoke(invokeGenerator(false));
+
+                    ServiceUtilities.ChangeStartMode(Globals.RoutingService, ServiceStartMode.Manual);
                     Globals.RoutingService.Start();
 
                     while (Globals.RoutingService.Status != ServiceControllerStatus.Running)
@@ -296,7 +299,9 @@ The application will be terminated to avoid unwanted behaviour.",
                 Task.Run(() =>
                 {
                     Invoke(invokeGenerator(false));
+
                     Globals.RoutingService.Stop();
+                    ServiceUtilities.ChangeStartMode(Globals.RoutingService, ServiceStartMode.Manual);
 
                     while (Globals.RoutingService.Status != ServiceControllerStatus.Stopped)
                     {
