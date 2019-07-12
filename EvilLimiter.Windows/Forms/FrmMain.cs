@@ -284,12 +284,7 @@ The application will be terminated to avoid unwanted behaviour.",
 
                     ServiceUtilities.ChangeStartMode(Globals.RoutingService, ServiceStartMode.Manual);
                     Globals.RoutingService.Start();
-
-                    while (Globals.RoutingService.Status != ServiceControllerStatus.Running)
-                    {
-                        Thread.Sleep(250);
-                        Globals.RoutingService.Refresh();
-                    }
+                    Globals.RoutingService.WaitForStatus(ServiceControllerStatus.Running);
 
                     Invoke(invokeGenerator(true));
                 });
@@ -300,14 +295,9 @@ The application will be terminated to avoid unwanted behaviour.",
                 {
                     Invoke(invokeGenerator(false));
 
-                    Globals.RoutingService.Stop();
                     ServiceUtilities.ChangeStartMode(Globals.RoutingService, ServiceStartMode.Manual);
-
-                    while (Globals.RoutingService.Status != ServiceControllerStatus.Stopped)
-                    {
-                        Thread.Sleep(250);
-                        Globals.RoutingService.Refresh();
-                    }
+                    Globals.RoutingService.Stop();
+                    Globals.RoutingService.WaitForStatus(ServiceControllerStatus.Stopped);
 
                     Invoke(invokeGenerator(true));
                 });
