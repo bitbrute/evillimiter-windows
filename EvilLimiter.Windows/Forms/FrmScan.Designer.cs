@@ -39,6 +39,7 @@
             this.pbScan = new MetroFramework.Controls.MetroProgressBar();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.lblStatus = new MetroFramework.Controls.MetroLabel();
+            this.scanHostNames = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // rbtnEntireRange
@@ -176,12 +177,25 @@
             this.lblStatus.Size = new System.Drawing.Size(0, 0);
             this.lblStatus.TabIndex = 6;
             // 
+            // scanHostNames
+            // 
+            this.scanHostNames.AutoSize = true;
+            this.scanHostNames.Checked = true;
+            this.scanHostNames.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.scanHostNames.Location = new System.Drawing.Point(23, 224);
+            this.scanHostNames.Name = "scanHostNames";
+            this.scanHostNames.Size = new System.Drawing.Size(105, 17);
+            this.scanHostNames.TabIndex = 7;
+            this.scanHostNames.Text = "Scan hostnames";
+            this.scanHostNames.UseVisualStyleBackColor = true;
+            // 
             // FrmScan
             // 
             this.AcceptButton = this.btnScan;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(294, 308);
+            this.Controls.Add(this.scanHostNames);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.pbScan);
@@ -218,5 +232,6 @@
         private MetroFramework.Controls.MetroProgressBar pbScan;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel lblStatus;
+        private System.Windows.Forms.CheckBox scanHostNames;
     }
 }

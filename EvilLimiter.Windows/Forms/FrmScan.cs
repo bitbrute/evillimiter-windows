@@ -104,7 +104,7 @@ namespace EvilLimiter.Windows.Forms
                 pbScan.Maximum = e.Total;
                 pbScan.Value = e.Current;
 
-                if (e.Current == e.Total)
+                if (e.Current == e.Total && scanHostNames.Checked)
                 {
                     btnScan.Enabled = false;
                     lblStatus.Text = "Resolving hostnames...";
@@ -144,7 +144,7 @@ namespace EvilLimiter.Windows.Forms
                     range = _networkInfo.SubnetRange;
 
                 ChangeScanState(ScanState.Scan);
-                _hostScanner.Scan(range);
+                _hostScanner.Scan(range, scanHostNames.Checked);
             }
         }
 
