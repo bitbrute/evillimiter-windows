@@ -1,7 +1,7 @@
 # Evil Limiter for Windows
 
 [![License Badge](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/bitbrute/evillimiter-windows/graphs/commit-activity)
 [![HitCount](http://hits.dwyl.io/bitbrute/evillimiter-windows.svg)](http://hits.dwyl.io/bitbrute/evillimiter-windows)
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
