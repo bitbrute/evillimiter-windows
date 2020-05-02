@@ -52,7 +52,7 @@ namespace EvilLimiter.Windows.Networking
 
 
 
-        public void Scan(ICollection<IpV4Address> addresses, bool scanHosts = true)
+        public void Scan(ICollection<IpV4Address> addresses, bool resolveHostnames = true)
         {
             if (IsScanning)
                 return;
@@ -137,7 +137,7 @@ namespace EvilLimiter.Windows.Networking
                     Thread.Sleep(Config.ScanReplyTimeout);
                     _tokenSource.Cancel();
 
-                    if(scanHosts)
+                    if(resolveHostnames)
                     {
                         foreach (var host in discoveredHosts)
                             host.HostName = NetworkUtilities.GetHostNameByIp(host.IpAddress);

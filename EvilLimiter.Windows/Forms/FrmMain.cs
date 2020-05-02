@@ -77,6 +77,7 @@ namespace EvilLimiter.Windows.Forms
 
             tbScanSendInterval.Text = Config.ScanSendInterval.ToString();
             tbScanReplyTimeout.Text = Config.ScanReplyTimeout.ToString();
+            cbScanResolveHostnames.Checked = Config.ScanResolveHostnames;
             tbSpoofSendInterval.Text = Config.SpoofSendInterval.ToString();
             tbSpoofRestoreSendCount.Text = Config.SpoofRestoreSendCount.ToString();
             tbSpoofRestoreSendInterval.Text = Config.SpoofRestoreSendInterval.ToString();
@@ -362,6 +363,7 @@ The application will be terminated to avoid unwanted behaviour.",
             Config.ColorStyle = colorStyle;
             Config.ScanSendInterval = scanSendInterval;
             Config.ScanReplyTimeout = scanReplyTimeout;
+            Config.ScanResolveHostnames = cbScanResolveHostnames.Checked;
             Config.SpoofSendInterval = spoofSendInterval;
             Config.SpoofRestoreSendCount = spoofRestoreSendCount;
             Config.SpoofRestoreSendInterval = spoofRestoreSendInterval;
