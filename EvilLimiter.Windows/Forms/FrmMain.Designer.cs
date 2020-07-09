@@ -87,6 +87,7 @@
             this.lnkEvilLimiter = new MetroFramework.Controls.MetroLink();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.cbScanResolveHostnames = new MetroFramework.Controls.MetroCheckBox();
             this.cmsHosts.SuspendLayout();
             this.tcHosts.SuspendLayout();
             this.tpHosts.SuspendLayout();
@@ -251,7 +252,7 @@
             this.tcHosts.Controls.Add(this.tpAbout);
             this.tcHosts.Location = new System.Drawing.Point(23, 79);
             this.tcHosts.Name = "tcHosts";
-            this.tcHosts.SelectedIndex = 0;
+            this.tcHosts.SelectedIndex = 1;
             this.tcHosts.Size = new System.Drawing.Size(718, 376);
             this.tcHosts.TabIndex = 4;
             this.tcHosts.UseSelectable = true;
@@ -313,7 +314,7 @@
             this.tcSettings.FontSize = MetroFramework.MetroTabControlSize.Small;
             this.tcSettings.Location = new System.Drawing.Point(0, 13);
             this.tcSettings.Name = "tcSettings";
-            this.tcSettings.SelectedIndex = 4;
+            this.tcSettings.SelectedIndex = 1;
             this.tcSettings.Size = new System.Drawing.Size(710, 289);
             this.tcSettings.TabIndex = 2;
             this.tcSettings.UseSelectable = true;
@@ -380,6 +381,7 @@
             // 
             // tpScanSettings
             // 
+            this.tpScanSettings.Controls.Add(this.cbScanResolveHostnames);
             this.tpScanSettings.Controls.Add(this.metroLabel6);
             this.tpScanSettings.Controls.Add(this.metroLabel5);
             this.tpScanSettings.Controls.Add(this.tbScanReplyTimeout);
@@ -839,6 +841,18 @@
             this.metroLabel14.TabIndex = 2;
             this.metroLabel14.Text = "This is the Windows version of the linux command-line tool                  .";
             // 
+            // cbScanResolveHostnames
+            // 
+            this.cbScanResolveHostnames.AutoSize = true;
+            this.cbScanResolveHostnames.Checked = true;
+            this.cbScanResolveHostnames.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbScanResolveHostnames.Location = new System.Drawing.Point(4, 145);
+            this.cbScanResolveHostnames.Name = "cbScanResolveHostnames";
+            this.cbScanResolveHostnames.Size = new System.Drawing.Size(126, 15);
+            this.cbScanResolveHostnames.TabIndex = 9;
+            this.cbScanResolveHostnames.Text = "Resolve Hostnames";
+            this.cbScanResolveHostnames.UseSelectable = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -931,5 +945,6 @@
         private MetroFramework.Controls.MetroLink lnkGitHubPage;
         private MetroFramework.Controls.MetroLabel metroLabel15;
         private MetroFramework.Controls.MetroLabel metroLabel17;
+        private MetroFramework.Controls.MetroCheckBox cbScanResolveHostnames;
     }
 }

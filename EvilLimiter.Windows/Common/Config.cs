@@ -32,6 +32,12 @@ namespace EvilLimiter.Windows.Common
             set { lock (_scanReplyTimeoutLock) _scanReplyTimeout = value; }
         }
 
+        public static bool ScanResolveHostnames
+        {
+            get { lock (_scanResolveHostnamesLock) return _scanResolveHostnames; }
+            set { lock (_scanResolveHostnamesLock) _scanResolveHostnames = value; }
+        }
+
 
         public static int SpoofSendInterval
         {
@@ -69,6 +75,8 @@ namespace EvilLimiter.Windows.Common
         private static readonly object _scanSendIntervalLock;
         private static int _scanReplyTimeout;
         private static readonly object _scanReplyTimeoutLock;
+        private static bool _scanResolveHostnames;
+        private static readonly object _scanResolveHostnamesLock;
 
         private static int _spoofSendInterval;
         private static readonly object _spoofSendIntervalLock;
@@ -88,6 +96,7 @@ namespace EvilLimiter.Windows.Common
             _colorStyle = MetroColorStyle.Default;
             _scanSendInterval = 10;
             _scanReplyTimeout = 2000;
+            _scanResolveHostnames = true;
             _spoofSendInterval = 4000;
             _spoofRestoreSendCount = 3;
             _spoofRestoreSendInterval = 50;
@@ -97,10 +106,13 @@ namespace EvilLimiter.Windows.Common
             _colorStyleLock = new object();
             _scanSendIntervalLock = new object();
             _scanReplyTimeoutLock = new object();
+            _scanResolveHostnamesLock = new object();
             _spoofSendIntervalLock = new object();
             _spoofRestoreSendCountLock = new object();
             _spoofRestoreSendIntervalLock = new object();
             _bandwidthMonitorUpdateIntervalLock = new object();
+
+            System.Console.WriteLine(true.ToString());
         }
 
 
@@ -117,6 +129,7 @@ namespace EvilLimiter.Windows.Common
 
                 ScanSendInterval = int.Parse(config.AppSettings.Settings["ScanSendInterval"].Value);
                 ScanReplyTimeout = int.Parse(config.AppSettings.Settings["ScanReplyTimeout"].Value);
+                ScanResolveHostnames = bool.Parse(config.AppSettings.Settings["ScanResolveHostnames"].Value);
 
                 SpoofSendInterval = int.Parse(config.AppSettings.Settings["SpoofSendInterval"].Value);
                 SpoofRestoreSendCount = int.Parse(config.AppSettings.Settings["SpoofRestoreSendCount"].Value);
@@ -145,6 +158,7 @@ namespace EvilLimiter.Windows.Common
 
                 config.AppSettings.Settings["ScanSendInterval"].Value = ScanSendInterval.ToString();
                 config.AppSettings.Settings["ScanReplyTimeout"].Value = ScanReplyTimeout.ToString();
+                config.AppSettings.Settings["ScanResolveHostnames"].Value = ScanResolveHostnames.ToString();
 
                 config.AppSettings.Settings["SpoofSendInterval"].Value = SpoofSendInterval.ToString();
                 config.AppSettings.Settings["SpoofRestoreSendCount"].Value = SpoofRestoreSendCount.ToString();

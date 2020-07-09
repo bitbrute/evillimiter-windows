@@ -1,4 +1,5 @@
-﻿using EvilLimiter.Windows.Data;
+﻿using EvilLimiter.Windows.Common;
+using EvilLimiter.Windows.Data;
 using EvilLimiter.Windows.Networking;
 using EvilLimiter.Windows.Utilities;
 using MetroFramework;
@@ -104,7 +105,7 @@ namespace EvilLimiter.Windows.Forms
                 pbScan.Maximum = e.Total;
                 pbScan.Value = e.Current;
 
-                if (e.Current == e.Total)
+                if (e.Current == e.Total && Config.ScanResolveHostnames)
                 {
                     btnScan.Enabled = false;
                     lblStatus.Text = "Resolving hostnames...";
@@ -144,7 +145,7 @@ namespace EvilLimiter.Windows.Forms
                     range = _networkInfo.SubnetRange;
 
                 ChangeScanState(ScanState.Scan);
-                _hostScanner.Scan(range);
+                _hostScanner.Scan(range, Config.ScanResolveHostnames);
             }
         }
 
